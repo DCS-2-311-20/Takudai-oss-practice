@@ -19,6 +19,23 @@ function hantei() {
   let yoso = 4;
   
   // 課題3-1: 正解判定する
+    if(1<=kaisu && kaisu<=2){
+        if(kotae===yoso){
+            console.log("正解です。おめでとう!");
+        }else if(kotae < yoso){
+            console.log("間違い。答えはもっと小さいですよ。");
+        }else if(kotae > yoso){
+            console.log("間違い。答えはもっと大きいですよ。")
+        }
+    }else if(kaisu===3){
+        if(kotae===yoso){
+            console.log("正解です。おめでとう!");
+        }else{
+            console.log("残念でした。答えは"+kotae+"です。");
+        }
+    }else if(4 <= kaisu){
+        console.log("答えは"+kotae+"でした。すでにゲームは終わっています。");
+    }
   // kotae と yoso が一致するかどうか調べて結果を出力
   // 課題3-1における出力先はコンソール
 }
