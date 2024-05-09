@@ -8,12 +8,9 @@ p.info {
 	background-color: #fef7f7a0;
 }
 
-title{
-	color:white;
-}
-
 h1 {
 	text-shadow:navy 1px 0 10px;
+	color:white
 }
 
 h2 {
