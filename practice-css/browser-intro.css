@@ -5,16 +5,18 @@ p {
 
 p.info {
 	font-size: small;
-	background-color: #dfdfdf;
+	background-color: #fef7f7a0;
+}
+
+title{
+	color:white;
 }
 
 h1 {
-	background-color: #7f7fcf;
 	text-shadow:navy 1px 0 10px;
 }
 
 h2 {
-	border: solid 1px black;
 	margin: 5px;
 	font-family: cursive;
 	color:#3f3faf;
