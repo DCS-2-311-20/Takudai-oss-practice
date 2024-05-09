@@ -5,7 +5,10 @@ p {
 
 p.info {
 	font-size: small;
-	background-color: yellow;
+}
+
+h5{
+	background-color: #dfdfdf;
 }
 
 h1 {
