@@ -7,6 +7,10 @@ h1{
     background-color: orange;
 }
 
+p.page{
+    border:solid green 5px;
+}
+
 div.box{
     background-color: orange;
     border:solid green 5px;
