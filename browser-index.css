@@ -8,6 +8,7 @@ h1{
 
 div.box{
     background-color: orange;
+    border:solid green 5px
 }
 h3{
     color: green;
