@@ -16,10 +16,11 @@ let gakka = [
 
 //////////////// ここから下にプログラムを書きたそう!
 console.log(campus.address);
-for (kyousitu of buildingD){
-	console.log(kyousitu);
+for (let n of campus.buildingD){
+	console.log(n);
 }
-for (item of gakka){
-	cpnsple.log(item);
+for (let m of gakka){
+	console.log(m.name);
 }
+
 
