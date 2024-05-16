@@ -20,7 +20,7 @@ function hantei() {
   
   // 課題3-1: 正解判定する
     if(1<=kaisu && kaisu<=2){
-        if(kotae===yoso){
+        if(kotae==yoso){
             console.log("正解です。おめでとう!");
         }else if(kotae < yoso){
             console.log("間違い。答えはもっと小さいですよ。");
