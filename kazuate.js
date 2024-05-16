@@ -12,14 +12,14 @@ hantei();
 hantei();
 hantei();
 hantei();
-
+hantei();
 // ボタンを押した後の処理をする関数 hantei() の定義
 function hantei() {
   // 将来ここでは 4 ではなくテキストボックスに指定された数値を yoso に代入する
   let yoso = 4;
   
   // 課題3-1: 正解判定する
-  for(let i=0;i<=1;i++){
+
     console.log((kaisu+1) +'回目の予想: '+yoso);
 
     if(0<=kaisu && kaisu<=2){
@@ -41,7 +41,7 @@ function hantei() {
     }
 
     kaisu=kaisu+1;
-  }
+  
    
   // kotae と yoso が一致するかどうか調べて結果を出力
   // 課題3-1における出力先はコンソール
