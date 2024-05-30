@@ -18,6 +18,10 @@ let data = [
 // 練習4-3 写真表作成プログラム
 
 // 練習4-4 箇条書き削除プログラム
-
+let w = document.querySelector('li');
+m=3;
+for(let n of m){
+	w.remove();
+}
 // 練習4-5 箇条書き追加プログラム
 
