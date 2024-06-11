@@ -201,3 +201,10 @@ let data = {
 
 /////////// 課題3-2 ここからプログラムを書こう
 
+ // gourmet.jsからデータを取得
+ let restaurants = data.results.shop;
+
+ // コンソールにデータを表示
+ console.log(restaurants);
+
+
