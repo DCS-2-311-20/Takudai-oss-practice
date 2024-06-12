@@ -207,4 +207,90 @@ let data = {
  // コンソールにデータを表示
  console.log(restaurants);
 
+ document.addEventListener('DOMContentLoaded', function() {
+  // 検索ボタンのクリックイベントを設定
+  document.getElementById('searchButton').addEventListener('click', function() {
+      let genreSelect = document.getElementById('genreSelect');
+      let genre = genreSelect.value.trim();
 
+      if (genre) {
+          let url = `https://www.nishita-lab.org/web-contents/jsons/hotpepper/${genre}.json`;
+
+          // AJAX通信でデータを取得
+          axios.get(url)
+              .then(function(response) {
+                  displayRestaurants(response.data.results.shop);
+              })
+              .catch(function(error) {
+                  console.error("Error fetching data:", error);
+                  document.getElementById('result').innerHTML = '<p>データの取得に失敗しました。</p>';
+              });
+      } else {
+          alert('ジャンルを選択してください。');
+      }
+  });
+
+  // レストランの情報を整理してHTMLに表示する関数
+  function displayRestaurants(restaurants) {
+      let resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = '';  // 以前の検索結果をクリア
+
+      restaurants.forEach(function(restaurant) {
+          let restaurantDiv = document.createElement("div");
+
+          // 名前
+          let nameHeader = document.createElement("h2");
+          nameHeader.textContent = "名前: " + restaurant.name;
+          restaurantDiv.appendChild(nameHeader);
+
+          // アクセス
+          let accessPara = document.createElement("p");
+          accessPara.textContent = "アクセス: " + restaurant.access;
+          restaurantDiv.appendChild(accessPara);
+
+          // 住所
+          let addressPara = document.createElement("p");
+          addressPara.textContent = "住所: " + restaurant.address;
+          restaurantDiv.appendChild(addressPara);
+
+          // 予算
+          let budgetPara = document.createElement("p");
+          budgetPara.textContent = "予算: " + restaurant.budget.name;
+          restaurantDiv.appendChild(budgetPara);
+
+          // キャッチコピー
+          let catchPara = document.createElement("p");
+          catchPara.textContent = "キャッチコピー: " + restaurant.catch;
+          restaurantDiv.appendChild(catchPara);
+
+          // ジャンル
+          let genrePara = document.createElement("p");
+          genrePara.textContent = "ジャンル: " + restaurant.genre.name;
+          restaurantDiv.appendChild(genrePara);
+
+          // 営業時間
+          let openPara = document.createElement("p");
+          openPara.textContent = "営業時間: " + restaurant.open;
+          restaurantDiv.appendChild(openPara);
+
+          // 最寄駅
+          let stationPara = document.createElement("p");
+          stationPara.textContent = "最寄駅: " + restaurant.station_name;
+          restaurantDiv.appendChild(stationPara);
+
+          // サブジャンル
+          let subGenrePara = document.createElement("p");
+          subGenrePara.textContent = "サブジャンル: " + restaurant.sub_genre.name;
+          restaurantDiv.appendChild(subGenrePara);
+
+          // 画像
+          let image = document.createElement("img");
+          image.src = restaurant.photo.pc.l;
+          image.alt = restaurant.name;
+          restaurantDiv.appendChild(image);
+
+          // レストランの情報をHTMLに追加
+          resultDiv.appendChild(restaurantDiv);
+      });
+  }
+});
