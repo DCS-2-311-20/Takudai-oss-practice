@@ -278,10 +278,12 @@ let data = {
           stationPara.textContent = "最寄駅: " + restaurant.station_name;
           restaurantDiv.appendChild(stationPara);
 
-          // サブジャンル
-          let subGenrePara = document.createElement("p");
-          subGenrePara.textContent = "サブジャンル: " + restaurant.sub_genre.name;
-          restaurantDiv.appendChild(subGenrePara);
+          // サブジャンル（存在する場合のみ）
+          if (restaurant.sub_genre) {
+              let subGenrePara = document.createElement("p");
+              subGenrePara.textContent = "サブジャンル: " + restaurant.sub_genre.name;
+              restaurantDiv.appendChild(subGenrePara);
+          }
 
           // 画像
           let image = document.createElement("img");
