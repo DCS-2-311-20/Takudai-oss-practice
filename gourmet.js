@@ -202,12 +202,12 @@ let data = {
 /////////// 課題3-2 ここからプログラムを書こう
 
  // gourmet.jsからデータを取得
- let restaurants = data.results.shop;
+let restaurants = data.results.shop;
 
- // コンソールにデータを表示
- console.log(restaurants);
+// コンソールにデータを表示
+console.log(restaurants);
 
- document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
   // 検索ボタンのクリックイベントを設定
   document.getElementById('searchButton').addEventListener('click', function() {
       let genreSelect = document.getElementById('genreSelect');
@@ -216,9 +216,21 @@ let data = {
       if (genre) {
           let url = `https://www.nishita-lab.org/web-contents/jsons/hotpepper/${genre}.json`;
 
+          // URLの確認
+          console.log(`Request URL: ${url}`);
+
           // AJAX通信でデータを取得
           axios.get(url)
               .then(function(response) {
+                  // データの確認
+                  console.log("Data fetched:", response.data);
+
+                  // データが空の場合のチェック
+                  if (response.data.results.results_available === 0) {
+                      document.getElementById('result').innerHTML = '<p>該当するレストランが見つかりませんでした。</p>';
+                      return;
+                  }
+
                   displayRestaurants(response.data.results.shop);
               })
               .catch(function(error) {
@@ -234,6 +246,14 @@ let data = {
   function displayRestaurants(restaurants) {
       let resultDiv = document.getElementById("result");
       resultDiv.innerHTML = '';  // 以前の検索結果をクリア
+
+      // デバッグ用ログ：取得したレストランデータの確認
+      console.log("Restaurants data:", restaurants);
+
+      if (!restaurants || restaurants.length === 0) {
+          resultDiv.innerHTML = '<p>該当するレストランが見つかりませんでした。</p>';
+          return;
+      }
 
       restaurants.forEach(function(restaurant) {
           let restaurantDiv = document.createElement("div");
