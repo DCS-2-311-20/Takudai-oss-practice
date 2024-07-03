@@ -214,7 +214,7 @@ let data = {
       let genre = genreSelect.value.trim();
 
       if (genre) {
-          let url = `https://www.nishita-lab.org/web-contents/jsons/hotpepper/${genre}.json`;
+        let url = `https://www.nishita-lab.org/web-contents/jsons/hotpepper/${genre}.json`;
 
           // AJAX通信でデータを取得
           axios.get(url)
