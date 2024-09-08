@@ -14,14 +14,36 @@ let data = [
 //// 注意: 以上は編集しないこと!
 
 // 練習4-2 メッセージ追加プログラム
+const ex42 = document.getElementById('ex42');
+const p = document.createElement('p');
+p.textContent = '練習4-2の目標';
+p.style.textEmphasis = 'sesame green';
+ex42.insertAdjacentElement('afterend', p);
 
 // 練習4-3 写真表作成プログラム
+const photoTable = document.getElementById('phototable');
+const imageFiles = ['taro.png', 'jiro.png', 'hanako.png'];
+
+for (const file of imageFiles) {
+    const img = document.createElement('img');
+    img.src = file;
+    const p = document.createElement('p');
+    p.appendChild(img);
+    photoTable.appendChild(p);
+}
 
 // 練習4-4 箇条書き削除プログラム
-let w = document.querySelector('li');
-m=3;
-for(let n of m){
-	w.remove();
+const liElements = document.querySelectorAll('ul#location > li');
+for(const li of liElements){
+	li.remove();
 }
+
 // 練習4-5 箇条書き追加プログラム
+const list = document.getElementById('location');  // 修正: documents → document
+for(const city of data){
+	const li = document.createElement('li');
+	// 修正: テンプレートリテラルの使用方法を修正
+	li.textContent = `${city.name} ... 緯度: ${city.lat}, 経度: ${city.lng}`;
+	list.appendChild(li);
+}
 
